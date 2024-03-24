@@ -1,0 +1,21 @@
+src/
+  app.module.ts
+  common/
+    filters/
+    guards/
+    decorators/
+    pipes/
+  config/
+    app.config.ts
+  users/
+    dto/
+    entities/
+    users.controller.ts
+    users.module.ts
+    users.service.ts
+  posts/
+    dto/
+    schemas/
+    posts.controller.ts
+    posts.module.ts
+    posts.service.ts
