@@ -1,4 +1,5 @@
 import { Controller, Get, Post, Request, UseGuards } from '@nestjs/common';
+import { stringify } from 'querystring';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';
 import { LocalAuthGuard } from './local-auth.guard';
@@ -21,4 +22,9 @@ export class AuthController {
     getProfile(@Request() req) {
         return req.user;
     }
+
+    @Post('/sign-up') 
+    async signup(username: string, password:string): Promise<{ access_token: string; }> {
+        return this.authService.signup(username, password);
+    } 
 }
