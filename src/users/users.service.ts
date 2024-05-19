@@ -27,4 +27,22 @@ export class UsersService {
             username, password
         })
     }
+
+    // Find or create a user based on the provider's data
+    async findOrCreateByProvider(providerId: string, provider: string, userData?: any): Promise<User> {
+        let user = await this.usersRepository.findOne({ where: { providerId, provider } });
+
+        if (!user) {
+            user = new User();
+            user.providerId = providerId;
+            user.provider = provider;
+            user.email = userData.email;
+            user.firstname = userData.firstname;
+            user.lastname = userData.lastName;
+
+            await this.usersRepository.save(user);
+        }
+
+        return user;
+    }
 }

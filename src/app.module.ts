@@ -16,6 +16,7 @@ import { HealthcheckModule } from './healthcheck/healthcheck.module';
     password: '1',
     database: 'fleet',
     entities: [User],
+    autoLoadEntities: true
   }), HealthcheckModule,
 ],
   controllers: [AppController],
